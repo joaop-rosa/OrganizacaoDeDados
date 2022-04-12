@@ -7,8 +7,10 @@ public class Varredura {
             i++;
         }
         if ((listaPessoa.size()==0)||(listaPessoa.size()<=i)){
+            System.out.println("Numeros de iterações busca sequencial: "+i);
             return -1;
         }
+        System.out.println("Numeros de iterações busca sequencial: "+i);
         return i;
     }
 
@@ -18,8 +20,10 @@ public class Varredura {
             i++;
         }
         if ((listaPessoa.size()==0)||(listaPessoa.size()<=i)){
+            System.out.println("Numeros de iterações busca sequencial: "+i);
             return -1;
         }
+        System.out.println("Numeros de iterações busca sequencial: "+i);
         return i;
     }
 
@@ -27,12 +31,14 @@ public class Varredura {
         int inicio = 0;         //Posição inicial do vetor.
         int meio = 0;          //Posição do meio do vetor.
         int fim = listaPessoa.size() - 1;  //Posição final do vetor.
-
+        int iteracoes = 0;
         while(inicio <= fim) {
+            iteracoes++;
             meio = (fim + inicio) / 2; //Encontra o meio do vetor.
 
             if(listaPessoa.get(meio).chave == valorBuscado) {
                 System.out.println("Encontrou o número " + valorBuscado);
+                System.out.println("Numeros de iterações busca binaria: "+iteracoes);
                 return meio;
             }
             if(listaPessoa.get(meio).chave < valorBuscado) {
@@ -42,13 +48,12 @@ public class Varredura {
             }
         }
         System.out.println("Não encontrou o número " + valorBuscado);
+        System.out.println("Numeros de iterações busca binaria: "+iteracoes);
         return -1;
+
     }
 
     void buscaHashing(List<Pessoa> listaPessoa,int valorBuscado){
-
-    }
-    void buscaHashing(List<Pessoa> listaPessoa,String valorBuscado){
 
     }
 }
