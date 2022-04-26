@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Arquivo {
     FileWriter arq;
     String caminhoArquivo = "arquivo.txt";
+    String caminhoArquivoBinario = "arquivo.dat";
 
 
     void gravaArquivo(List<Pessoa> listaPessoa)throws IOException{
@@ -31,5 +32,23 @@ public class Arquivo {
         }
 
         return listaPessoa;
+    }
+
+    void gravaArquivoBinario(List<Pessoa> listaPessoa) throws IOException {
+
+            FileOutputStream fos = new FileOutputStream(caminhoArquivoBinario);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            // escreve todos os produtos do registro no arquivo
+            for (int i = 0 ; i<listaPessoa.size();i++){
+                oos.writeObject (listaPessoa.get(i));
+            }
+
+            // fecha o arquivo
+            oos.flush();
+            oos.close();
+            fos.close();
+
+
     }
 }
